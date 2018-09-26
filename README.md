@@ -72,3 +72,9 @@ A  library of RegExp
 ```js
   '13666666666666666666'.replace(/(?<=\d{3})\d(?=\d{4})/g, '*')  //'136*************6666'
 ```
+
+- **获取 query 参数**
+```js
+  // 利用了 JSON.parse()，将 query 拼接成了 JSON 并解析：
+  JSON.parse(`{"${location.search.slice(1).replace(/\&/g, '","').replace(/\=/g, '":"')}"}`)
+```
